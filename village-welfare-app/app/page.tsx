@@ -1,65 +1,165 @@
-import Image from "next/image";
+// app/page.js
+'use client';
 
-export default function Home() {
+import React from 'react';
+import Link from 'next/link';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import Carousel from '@/components/home/Carousel';
+import { Sprout, Droplets, Users, Heart } from 'lucide-react';
+
+export default function HomePage() {
+  const impactAreas = [
+    { 
+      icon: Sprout, 
+      title: 'Agriculture', 
+      desc: 'Modern farming equipment and training for better yields' 
+    },
+    { 
+      icon: Droplets, 
+      title: 'Irrigation', 
+      desc: 'Sustainable water management systems for all seasons' 
+    },
+    { 
+      icon: Users, 
+      title: 'Community', 
+      desc: 'Building stronger village bonds through collective growth' 
+    },
+    { 
+      icon: Heart, 
+      title: 'Healthcare', 
+      desc: 'Accessible medical facilities for farming families' 
+    }
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      
+      <main>
+        {/* Carousel Section */}
+        <Carousel />
+
+        {/* Impact Areas */}
+        <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
+              Our Impact Areas
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Every contribution helps us create lasting change in rural communities
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {impactAreas.map((area, idx) => (
+              <div 
+                key={idx}
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+              >
+                <div className="text-green-600 flex justify-center mb-4">
+                  <area.icon size={40} />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 text-center">
+                  {area.title}
+                </h3>
+                <p className="text-gray-600 text-center text-sm">
+                  {area.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="bg-green-600 text-white py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
+                <div className="text-green-100">Farmers Supported</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
+                <div className="text-green-100">Villages Reached</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">₹10L+</div>
+                <div className="text-green-100">Funds Raised</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+          <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
+              Make a Difference Today
+            </h2>
+            <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+              Your contribution, no matter the size, helps provide essential resources 
+              and support to hardworking farmers and their families.
+            </p>
+            {/* <Link 
+              href="/donate"
+              className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 shadow-lg transform hover:scale-105 transition"
+            > */}
+              Donate Now
+            {/* </Link> */}
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="bg-gray-100 py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-12 text-center">
+              Success Stories
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: 'Ravi Kumar',
+                  role: 'Farmer, Green Valley',
+                  text: 'The new irrigation system has doubled our crop yield. We are truly grateful.'
+                },
+                {
+                  name: 'Priya Sharma',
+                  role: 'Village Leader',
+                  text: 'Community programs have brought us together and improved our lives significantly.'
+                },
+                {
+                  name: 'Suresh Patel',
+                  role: 'Organic Farmer',
+                  text: 'Training in sustainable farming practices has transformed how we work our land.'
+                }
+              ].map((testimonial, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-xl shadow-lg">
+                  <div className="text-green-600 text-4xl mb-4">"</div>
+                  <p className="text-gray-600 mb-4 italic">
+                    {testimonial.text}
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">
+                      {testimonial.name[0]}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-800">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {testimonial.role}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
