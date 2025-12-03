@@ -21,3 +21,13 @@ runConfig:
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
   # - variable: MY_SECRET
   #   secret: mySecretRef
+env:
+  - variable: MAIL_USER
+    value: asp.devworks@gmail.com
+  - variable: MAIL_PASS
+    value: Welcome@123
+  - variable: MAIL_TO
+    value: asp.vijaybaskar@gmail.com
+  - variable: GMAIL_APP_PASS
+    value: "agrj xmuw uhkx yaqq"
+  
