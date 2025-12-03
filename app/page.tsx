@@ -43,14 +43,16 @@ export default function HomePage() {
         <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-green-600 mb-4">
-              Our Impact Areas
+              STEM for Village’s Future An Integrated Knowledge Empowerment
+              Program
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Every contribution helps us create lasting change in rural
-              communities
+              Vision : To build a robust, inclusive, and scalable education
+              support system for children from poor and marginalized families by
+              integrating STEM-based learning through modern tools, skilled
+              educators, community ownership, and digital infrastructure
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {impactAreas.map((area, idx) => (
               <div

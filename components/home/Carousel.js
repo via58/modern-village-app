@@ -19,23 +19,23 @@ export default function Carousel() {
   const slides = [
     {
       image: carousel5,
-      title: 'Elango Ranagaswamy',
-      description: 'Help our village farmers with modern equipment and resources'
+      title: 'Bridging the Learning Divide',
+      description: 'Tailored STEM tools help rural children grasp concepts faster, with curiosity and relevance.'
     },
     {
       image: carousel6,
-      title: 'Clean Water Access',
-      description: 'Provide clean water infrastructure to every household'
+      title: 'Local Role Models',
+      description: 'Young innovators from the village inspire community-wide transformation.'
     },
     {
       image: carousel7,
-      title: 'Sustainable Farming',
-      description: 'Promote organic and environmentally friendly agriculture'
+      title: 'Future-Readiness',
+      description: 'STEM skills—coding, robotics, problem-solving—are essential for 21st-century livelihoods.'
     },
     {
       image: carousel4,
-      title: 'Education & Training',
-      description: 'Build better future through knowledge and skills'
+      title: 'Building Community Capacity',
+      description: 'Local youth are trained as educators and researchers—creating sustainable knowledge ecosystems.'
     }
   ];
 
